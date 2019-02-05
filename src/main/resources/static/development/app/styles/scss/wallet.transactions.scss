@@ -1,0 +1,102 @@
+//colors
+$white: white;
+$color_alto_approx: #ddd;
+
+//@extend-elements
+//original selectors
+//.item .user .expanded, .item .user .expanded >*
+%extend_1 {
+  max-height: 0;
+  opacity: 0;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all 500ms;
+}
+
+
+.item {
+  .user {
+    background-color: $white;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 500ms;
+    h3 {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 500ms;
+    }
+    p {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 500ms;
+      opacity: 1;
+      height: inherit;
+      &.ng-hide {
+        opacity: 0;
+        height: 0;
+      }
+    }
+    &.selected {
+      margin: 30px -15px;
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 2px;
+      .expanded {
+
+        visibility: visible;
+        max-height: inherit;
+        opacity: 1;
+        > * {
+          max-height: inherit;
+          opacity: 1;
+        }
+        .md-label {
+          border: hidden;
+        }
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+    }
+    .expanded {
+      visibility: hidden;
+      @extend %extend_1;
+      > * {
+        @extend %extend_1;
+      }
+      .split {
+        padding: 10px;
+      }
+    }
+    .face {
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 30px;
+      border: 1px solid $color_alto_approx;
+      width: 48px;
+      height: 48px;
+      margin: 16px;
+    }
+  }
+  &:first-child .user {
+    //Instead of the line below you could use @include border-top-left-radius($radius)
+    border-top-left-radius: 2px;
+    //Instead of the line below you could use @include border-top-right-radius($radius)
+    border-top-right-radius: 2px;
+    &.selected {
+      margin-top: 0;
+    }
+  }
+  &:last-child .user {
+    //Instead of the line below you could use @include border-bottom-left-radius($radius)
+    border-bottom-left-radius: 2px;
+    //Instead of the line below you could use @include border-bottom-right-radius($radius)
+    border-bottom-right-radius: 2px;
+  }
+  .tile .folded {
+    cursor: pointer;
+  }
+}
+.selected-item ~ .item .user {
+  //Instead of the line below you could use @include border-top-left-radius($radius)
+  border-top-left-radius: 2px;
+  //Instead of the line below you could use @include border-top-right-radius($radius)
+  border-top-right-radius: 2px;
+  &.selected {
+    margin-top: 0;
+  }
+}

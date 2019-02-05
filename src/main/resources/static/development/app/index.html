@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<!-- bower:css -->
+<link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+<link rel="stylesheet" href="../bower_components/angular-chart.js/dist/angular-chart.css" />
+<!-- endbower -->
+<!-- include: "type": "css", "files": "styles/**/*.css" -->
+<link href="styles/css/animate.css" rel="stylesheet" type="text/css">
+<link href="styles/css/application.css" rel="stylesheet" type="text/css">
+<link href="styles/css/dialog.css" rel="stylesheet" type="text/css">
+<link href="styles/css/main.css" rel="stylesheet" type="text/css">
+<link href="styles/css/wallet.transactions.css" rel="stylesheet" type="text/css">
+<link href="styles/css/welcome.css" rel="stylesheet" type="text/css">
+<!-- /include -->
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+
+body {
+	background-color: #ececec;
+}
+
+md-toast {
+	left: 50%;
+	margin-left: -150px;
+}
+
+md-content {
+	background-color: #eee
+}
+</style>
+</head>
+<body ng-app="blockchainApp" flex>
+	<ui-view name="master" layout="row" layout-fill></ui-view>
+
+	<!-- bower:js -->
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="../bower_components/angular-animate/angular-animate.js"></script>
+	<script src="../bower_components/angular-aria/angular-aria.js"></script>
+	<script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="../bower_components/angular-messages/angular-messages.js"></script>
+	<script src="../bower_components/angular-material/angular-material.js"></script>
+	<script src="../bower_components/angular-resource/angular-resource.js"></script>
+	<script src="../bower_components/angular-route/angular-route.js"></script>
+	<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="../bower_components/Chart.js/Chart.js"></script>
+	<script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<!-- endbower -->
+	<!-- include: "type": "js", "files": "scripts/**/*.js" -->
+	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers/app.wallet.profile.js"></script>
+	<script src="scripts/controllers/citation.dialog.js"></script>
+	<script src="scripts/controllers/fil3chain.widget.js"></script>
+	<script src="scripts/controllers/miner.dialog.js"></script>
+	<script src="scripts/controllers/miner.js"></script>
+	<script src="scripts/controllers/wallet.statistics.js"></script>
+	<script src="scripts/controllers/wallet.transactions.js"></script>
+	<script src="scripts/controllers/wallet.transactions.post.js"></script>
+	<script src="scripts/controllers/welcome.signin.js"></script>
+	<script src="scripts/controllers/welcome.signup.js"></script>
+	<script src="scripts/d3js/d3.js"></script>
+	<script src="scripts/d3js/dndTree.js"></script>
+	<script src="scripts/directives/uploadDirective.js"></script>
+	<script src="scripts/filters/ExactMatch/ExactMatchFilter.js"></script>
+	<script src="scripts/filters/TransactionsFilter.js"></script>
+	<script src="scripts/filters/fabState/fabStateFilter.js"></script>
+	<script src="scripts/modules/fil3chain.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/directives/directive.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/filters/stateFilter.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/filters/stateFilterTab.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/navbar.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/services/config.js"></script>
+	<script src="scripts/modules/navbar.fil3chain/services/service.js"></script>
+	<script src="scripts/modules/sha256.fil3chain/services/sha256.js"></script>
+	<script src="scripts/modules/sha256.fil3chain/sha256.js"></script>
+	<script src="scripts/modules/sidenav.fil3chain/directives/directive.js"></script>
+	<script src="scripts/modules/sidenav.fil3chain/filters/stateFilter.js"></script>
+	<script src="scripts/modules/sidenav.fil3chain/services/config.js"></script>
+	<script src="scripts/modules/sidenav.fil3chain/services/service.js"></script>
+	<script src="scripts/modules/sidenav.fil3chain/sidenav.js"></script>
+	<script src="scripts/modules/speedDial.fil3chain/directives/directive.js"></script>
+	<script src="scripts/modules/speedDial.fil3chain/filters/fabStateFilter.js"></script>
+	<script src="scripts/modules/speedDial.fil3chain/services/config.js"></script>
+	<script src="scripts/modules/speedDial.fil3chain/services/service.js"></script>
+	<script src="scripts/modules/speedDial.fil3chain/speedDial.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/controllers/fil3chain.controller.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/directives/directive.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/filters/stateFilter.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/filters/stateFilterTab.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/services/config.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/services/service.js"></script>
+	<script src="scripts/modules/statistics.fil3chain/statistics.js"></script>
+	<script src="scripts/modules/user.fil3chain/service/UserService.js"></script>
+	<script src="scripts/modules/user.fil3chain/service/UserValidatorService.js"></script>
+	<script src="scripts/modules/user.fil3chain/user.js"></script>
+	<script src="scripts/services/MinerService.js"></script>
+	<script src="scripts/services/TransactionService.js"></script>
+	<!-- /include -->
+	<!-- include: "type": "js", "files": "states/**/*.js" -->
+
+
+	<!-- /include -->
+</body>
+</html>

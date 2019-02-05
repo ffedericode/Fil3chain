@@ -1,0 +1,45 @@
+<md-content layout="row" md-scroll-y layout-fill layout-padding>
+  <style media="screen">
+
+    section {
+      margin : 2px !important;
+      padding: 2px !important;
+      padding-left : 1px !important;
+      padding-right: 1px !important;
+    }
+    section > widget {
+      min-height : 100px;
+      border : solid 1px;
+      margin : 2px !important;
+    }
+
+    .block1 {  min-height : 200px}
+    .block5 {  min-height : 200px}
+    .block6 {  min-height : 270px}
+    .block7 {  min-height : 230px}
+    .block8 {  min-height : 300px}
+  </style>
+
+  <section layout="column" flex layout-padding layout-margin >
+    <widget class="block1" type="number" name="ips"></widget>
+    <widget class="block2" type="graph" name="graph"></widget>
+    <widget class="block3" type="number" name="ips"></widget>
+  </section>
+
+  <section layout="column" flex layout-padding layout-margin >
+    <widget class="block4" type="graph" name="graph"></widget>
+    <widget class="block5" type="graph" name="graph"></widget>
+    <widget class="block6" type="graph" name="graph"></widget>
+  </section>
+
+  <section layout="column" flex layout-padding layout-margin >
+    <widget class="block7" type="graph" name="graph"></widget>
+    <widget class="block8" type="graph" name="graph"></widget>
+
+  </section>
+
+  <section layout="column" flex layout-padding layout-margin >
+    <widget type="graph" name="graph"></widget>
+  </section>
+
+</md-content>

@@ -1,0 +1,54 @@
+<md-card ng-hide="signinVisible" flex-gt-sm="50" flex-offset-gt-sm="25">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Signup</span>
+      <span class="md-subhead">Medium</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="md-media-md card-media">
+        <img src="images/fil3chain_logo_mini.svg" alt="" />
+      </div>
+    </md-card-title-media>
+  </md-card-title>
+  <form name="signupForm">
+  <md-card-content layout="row" flex-gt-sm="80" flex-offset-gt-sm="10">
+    <div flex>
+      <md-input-container class="md-icon-float md-block">
+        <md-input-container class="md-block">
+          <!-- Use floating placeholder instead of label -->
+          <md-icon md-svg-src="icons/ic_account_circle_black_24px.svg" class="email"></md-icon>
+          <input ng-model="user.name" type="text" placeholder="Name (required)" ng-required="true" style="    color: black;">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <!-- Use floating placeholder instead of label -->
+          <md-icon md-svg-src="icons/ic_account_circle_black_24px.svg" class="email"></md-icon>
+          <input ng-model="user.lastName" type="text" placeholder="Surname (required)" ng-required="true" style="    color: black;">
+        </md-input-container>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container class="md-icon-float md-block">
+        <md-input-container class="md-block">
+          <!-- Use floating placeholder instead of label -->
+          <md-icon md-svg-src="icons/ic_account_circle_black_24px.svg" class="email"></md-icon>
+          <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true" style="    color: black;">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <!-- Use floating placeholder instead of label -->
+          <md-icon md-svg-src="icons/ic_fingerprint_black_24px.svg" class="password"></md-icon>
+          <input ng-model="user.username" type="text" placeholder="Username (required)" ng-required="true" style="    color: black;">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <!-- Use floating placeholder instead of label -->
+          <md-icon md-svg-src="icons/ic_fingerprint_black_24px.svg" class="password"></md-icon>
+          <input ng-model="user.password" type="password" placeholder="Password (required)" ng-required="true" style="    color: black;">
+        </md-input-container>
+      </md-input-container>
+    </div>
+  </md-card-content>
+</form>
+  <md-card-actions layout="row" layout-align-gt-sm="end center">
+    <md-button  ng-click="delete(user)" class="md-button md-ink-ripple" type="button" aria-label="Reset login form"><span class="ng-binding ng-scope">Reset</span><div class="md-ripple-container"></div></md-button>
+    <md-button ng-disabled="signupForm.$invalid" ng-click="signup(user)" class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="Send login form"><span class="ng-scope">Signup</span><div class="md-ripple-container"></div></md-button>
+  </md-card-actions>
+</md-card>

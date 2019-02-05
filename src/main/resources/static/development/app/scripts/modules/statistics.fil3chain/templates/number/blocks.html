@@ -1,0 +1,24 @@
+<md-card flex="noshrink">
+  <md-card-header >
+    <md-card-header-text layout layout-align="end center">
+      <span class="md-headline">Blocks</span>
+      <span flex></span>
+      <md-menu md-position-mode="target">
+        <md-button class="md-icon-button" aria-label="Refresh widget">
+          <md-icon  md-menu-origin ng-click="openWidgetMenu($mdOpenMenu, $event)" md-svg-src="icons/ic_more_vert_black_24px.svg" alt="Refresh widget" </md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="refreshWidget($event)">
+                <md-icon md-svg-src="icons/ic_refresh_black_24px.svg" alt="Refresh widget" md-menu-align-target></md-icon>
+                Refresh
+              </md-button>
+            </md-menu-item>
+          </md-menu>
+        </md-card-header-text>
+      </md-card-header>
+      <md-card-content layout layout-align="end center">
+        <h2 ng-if="data.value != undefined">{{data.value}}</h2>
+        <p ng-if="data.value === 'undefined'">Please refresh widget</p>
+      </md-card-content>
+    </md-card>

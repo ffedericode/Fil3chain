@@ -1,0 +1,149 @@
+<style media="screen">
+  md-card-content {
+    height: 299px;
+  }
+
+  .node {
+    cursor: pointer;
+  }
+
+  .overlay{
+    background-color:#EEE;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+
+  .node text {
+    font-size:10px;
+    font-family:sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+    display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+    display: none;
+  }
+</style>
+<md-card flex="noshrink" style="height: 100%;">
+  <md-card-header >
+    <md-card-header-text layout layout-align="end center">
+      <span class="md-headline">Fil3chain</span>
+      <span flex></span>
+      <md-button ng-if="data.info.page > 1" class="md-icon-button" aria-label="Previous Page">
+        <md-icon  md-menu-origin ng-click="paginationPrev(data.info.page)" md-svg-src="icons/ic_keyboard_arrow_left_black_24px.svg" alt="Refresh widget" </md-icon>
+        </md-button>
+        <p ng-if="data.info.page != undefined">Page {{data.info.page}}</p>
+        <p ng-if="data.info.page === undefined">Pages are not available</p>
+        <md-button ng-if="data.info.last !== 'true'" class="md-icon-button" aria-label="Next Page">
+          <md-icon  md-menu-origin ng-click="paginationSucc(data.info.page)" md-svg-src="icons/ic_keyboard_arrow_right_black_24px.svg" alt="Refresh widget" </md-icon>
+          </md-button>
+
+          <md-menu md-position-mode="target">
+            <md-button class="md-icon-button" aria-label="Refresh widget">
+              <md-icon  md-menu-origin ng-click="openWidgetMenu($mdOpenMenu, $event)" md-svg-src="icons/ic_more_vert_black_24px.svg" alt="Refresh widget" </md-icon>
+              </md-button>
+              <!-- <span class="md-subhead">subhead</span> -->
+              <md-menu-content width="4">
+                <md-menu-item>
+                  <md-button ng-click="refreshWidget($event)">
+                    <md-icon md-svg-src="icons/ic_refresh_black_24px.svg" alt="Refresh widget" md-menu-align-target></md-icon>
+                    Refresh
+                  </md-button>
+                </md-menu-item>
+              </md-menu>
+            </md-card-header-text>
+          </md-card-header>
+
+          <md-card-content layout-padding>
+            <div id="tree-container" data="{{data}}" filechain></div>
+          </md-card-content>
+
+        </md-card>
+
+
+        <md-card flex="noshrink" ng-hide="!block" style="width: 99%;">
+          <md-card-header >
+            <md-card-header-text layout="row" layout-align="space-between center">
+              <span class="md-headline">Block details</span>
+              <md-button class="md-icon-button" aria-label="Delete Details" ng-click="deleteDetails()">
+                <md-icon  md-menu-origin  md-svg-src="icons/ic_remove_black_24px.svg" alt="Delete block details" </md-icon>
+                </md-button>
+              </md-card-header-text>
+            </md-card-header>
+
+            <md-card-content layout="column" flex="grow" layout-fill layout-padding >
+              <div layout="column" layout-wrap>
+
+                <div ng-repeat="h in headers">
+                  <div layout layout-align="space-between center" layout-padding ng-if="!h.innerFields" >
+                    <p>{{ h.name }}</p>
+                    <p>{{block[h.field]}}</p>
+                  </div>
+
+                  <div  layout layout-align="space-between center" layout-padding ng-if="h.innerFields && h.innerFields.length>0">
+
+                    <p>{{h.name}}</p>
+                    <md-button aria-label="Open Block inner field" layout-align="none center" ng-click="toggleInnerField($index, block, h.field)">
+                      <md-icon ng-if="!openedFields[block.hashBlock] || !openedFields[block.hashBlock][h.field]" md-svg-src="icons/ic_keyboard_arrow_down_black_24px.svg"></md-icon>
+                      <md-icon ng-if="openedFields[block.hashBlock][h.field] === true" md-svg-src="icons/ic_keyboard_arrow_up_black_24px.svg"></md-icon>
+                    </md-button>
+
+                  </div>
+                  <div layout="column" layout-padding ng-if="openedFields[block.hashBlock][h.field]">
+                    <div ng-repeat="innerField in h.innerFields" layout-align="space-between center" layout>
+                      <p> {{innerField.name}}</p>
+                      <p>{{block[h.field][innerField.field]}}</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </md-card-content>
+          </md-card>
+
+
+          <!--
+          <md-list>
+          <md-subheader class="md-no-sticky">Block details</md-subheader>
+          <md-list-item	ng-repeat="h in headers">
+          <p ng-if="h.name != 'User'">{{ h.name }}</p>
+          <p ng-if="h.name != 'User'">{{ block[h.field] }}</p>
+        -->
+        <!--
+        <md-list ng-if="h.name === 'User'">
+        <md-list-item	ng-repeat="innerField in h.innerFields">
+        <p>{{ innerField.name }}</p>
+        <p>{{ innerField.field }}</p>
+      </md-list-item>
+    </md-list>
+  -->
+  <!--
+  <md-checkbox class="md-secondary"  ng-show="selectionModeItem"></md-checkbox>
+</md-list-item>
+</md-list>
+<md-list ng-repeat="h in headers" ng-if="h.name === 'User'">
+<md-list-item	ng-repeat="innerField in h.innerFields">
+<p>{{ innerField.name }}</p>
+<p>{{ block[h.field][innerField.field]}}</p>
+</md-list-item>
+</md-list>
+-->
+</div>

@@ -1,0 +1,72 @@
+<nav ng-show="!showSearch && navbar.states!='default' ">
+  <style media="screen">
+    md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+      background-color: rgb(63,81,110);
+      color: rgba(255,255,255,0.87);
+    }
+
+    md-tabs{
+      background-color: rgb(63,81,110);
+      color: rgba(255,255,255,0.87);
+    }
+    md-tabs .md-tab.md-active{
+      color: rgba(255,255,255,0.87);
+    }
+    .md-tab {
+      float: right;
+    }
+
+    md-pagination-wrapper {
+      left: initial;
+      right: 0;
+    }
+  </style>
+
+  <md-toolbar  layout-padding>
+    <div class="md-toolbar-tools" layout="row">
+      <md-button class="md-icon-button" aria-label="Settings" hide-gt-sm ng-click="toggleSidenav('left')">
+        <md-icon md-svg-src="icons/ic_menu_white_24px.svg"></md-icon>
+      </md-button>
+      <h2>
+        <span>{{navbar.title}}</span>
+      </h2>
+      <span flex=""></span>
+      <md-button class="md-icon-button" aria-label="{{action.label}}" ng-click="navbarClick(action)" ng-repeat="action in navbar.actions">
+        <md-icon md-svg-icon="{{action.icon}}" ></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-tabs md-stretch-tabs md-selected="selectedIndex" class="md-whiteframe-z2" ng-show="navbar.links.length>0">
+    <md-tab label="{{link.label}}" ng-repeat="link in navbar.links" ng-click="actionClick($index,link)"></md-tab>
+  </md-tabs>
+
+
+</nav>
+
+<nav ng-show="showSearch && navbar.states!='default'">
+  <style media="screen">
+
+    #toolbarSearch{
+      background-color:#fff
+    }
+
+    #inputSearch .md-errors-spacer{
+      display: none;
+    }
+  </style>
+  <md-toolbar layout-padding class="md-hue-1 md-whiteframe-z2" id="toolbarSearch">
+    <div class="md-toolbar-tools">
+      <md-icon md-svg-icon="icons/ic_search_black_24px.svg"></md-icon>
+
+      <md-input-container flex id="inputSearch">
+        <label>&nbsp;</label>
+        <input ng-model="search.who" placeholder="Enter search">
+      </md-input-container>
+      <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+        <md-icon md-svg-icon="icons/ic_close_black_24px.svg"></md-icon>
+      </md-button>
+
+    </div>
+  </md-toolbar>
+</nav>

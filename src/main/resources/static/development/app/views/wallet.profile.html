@@ -1,0 +1,40 @@
+<md-content layout="row" md-scroll-y layout-wrap layout-padding>
+<md-card flex="noshrink">
+  <md-card-header >
+    <md-card-header-text layout="row" layout-align="space-between center">
+      <span class="md-headline">User details</span>
+      </md-card-header-text>
+    </md-card-header>
+
+    <md-card-content layout="column" flex="noshrink" layout-fill layout-padding >
+        <md-list >
+          <md-list-item layout-align="space-between center">
+            <p>Public Key Hash</p>
+            <p>{{user.publicKeyHash}}</p>
+          </md-list-item>
+          <!--
+          <md-list-item  >
+            <p>Public Key</p>
+            <p>{{user.publicKey}}</p>
+          </md-list-item>
+        -->
+          <md-list-item  >
+            <p>Name</p>
+            <p>{{user.name}}</p>
+          </md-list-item>
+          <md-list-item  >
+            <p>Lastname</p>
+            <p>{{user.lastName}}</p>
+          </md-list-item>
+          <md-list-item  >
+            <p>Username</p>
+            <p>{{user.username}}</p>
+          </md-list-item>
+          <md-list-item  >
+            <p>Email</p>
+            <p>{{user.email}}</p>
+          </md-list-item>
+        </md-list>
+    </md-card-content>
+  </md-card>
+</md-content>

@@ -1,0 +1,32 @@
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+#widgetWelcome.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+#widgetWelcome.ng-enter-active {
+  /* end with opacity 1 (fade in) */
+  opacity: 1;
+}
+/*
+#widgetWelcome.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+#widgetWelcome.ng-leave.ng-leave-active {
+  opacity:0;
+}*/

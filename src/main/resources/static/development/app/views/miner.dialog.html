@@ -1,0 +1,34 @@
+<md-dialog aria-label="Miner Settings"  ng-cloak style="width: 33%;">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Miner Settings</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="icons/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2>Select an IP address</h2>
+        <div layout="column" layout-align="center center">
+          <md-select placeholder="Assign to user" ng-model="selected_ip" style="min-width: 200px;">
+            <md-option ng-repeat="ip in ips">{{ip}}</md-option>
+          </md-select>
+          <p class="md-caption">You have selected the ip: {{ selected_ip ? selected_ip : 'No one yet' }}</p>
+        </div>
+      </md-dialog-content>
+
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()">
+          Dismiss
+        </md-button>
+        <md-button  ng-disabled="!selected_ip" ng-click="answer(selected_ip)">
+          Ok
+        </md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog>

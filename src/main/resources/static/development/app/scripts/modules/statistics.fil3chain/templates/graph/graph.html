@@ -1,0 +1,54 @@
+<md-card flex="noshrink">
+  <md-card-header >
+
+    <!--
+    <span flex></span>
+    <md-card-avatar>
+    <img class="md-user-avatar" src="img/100-2.jpeg"/>
+  </md-card-avatar>
+-->
+
+<md-card-header-text layout layout-align="end center">
+  <span class="md-headline">Widget name</span>
+  <span flex></span>
+  <md-menu md-position-mode="target">
+    <md-button class="md-icon-button" aria-label="Refresh widget">
+      <md-icon  md-menu-origin ng-click="openWidgetMenu($mdOpenMenu, $event)" md-svg-src="icons/ic_more_vert_black_24px.svg" alt="Refresh widget" </md-icon>
+      </md-button>
+      <!-- <span class="md-subhead">subhead</span> -->
+      <md-menu-content width="4">
+      <md-menu-item>
+        <md-button ng-click="refreshWidget($event)">
+          <md-icon md-svg-src="icons/ic_refresh_black_24px.svg" alt="Refresh widget" md-menu-align-target></md-icon>
+          Refresh
+        </md-button>
+      </md-menu-item>
+    </md-menu>
+  </md-card-header-text>
+</md-card-header>
+<!--
+<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
+<md-card-title>
+  <md-card-title-text>
+    <span class="md-headline">In-card mixed actions</span>
+    <span class="md-subhead">Reversed</span>
+  </md-card-title-text>
+</md-card-title>
+
+<md-card-actions layout="row" layout-align="start center">
+  <md-button>Action 1</md-button>
+  <md-button>Action 2</md-button>
+  <md-card-icon-actions>
+    <md-button class="md-icon-button" aria-label="toggle">
+      <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+    </md-button>
+  </md-card-icon-actions>
+</md-card-actions>
+-->
+<md-card-content>
+  <canvas id="line" class="chart chart-line" chart-data="data"
+  chart-labels="labels" chart-legend="true" chart-series="series"
+  chart-click="pointClick" >
+</canvas>
+</md-card-content>
+</md-card>

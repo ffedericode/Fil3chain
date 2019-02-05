@@ -1,0 +1,77 @@
+<md-dialog aria-label="Add Citation"  ng-cloak style="background: #ececec;">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Citation</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-src="icons/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content style="height: 100%;">
+    <div class="md-dialog-content" layout flex="grow" layout-align="center center" flex>
+
+
+
+      <div flex="70" class="content" ui-view>
+        <md-item ng-repeat="transaction in transactions" class="item"
+        ng-class="{ 'selected-item': $index == selectedCitationIndex}">
+        <md-item-content class="user tile md-whiteframe-z1"
+        ng-class="{ 'selected md-whiteframe-z2': $index == selectedCitationIndex}"
+        layout="column">
+        <div layout="row" layout-fill layout-padding ng-click="selectUserIndex($event,$index)"
+        class="">
+        <div class="md-tile-left">
+          <p class="transaction" ng-hide="$index == selectedCitationIndex">Transaction Filename</p>
+          <h3>{{ transaction.filename }}</h3>
+
+        </div>
+        <div flex></div>
+        <div class="md-tile-content" ng-show="selectionMode" layout="row" layout-align="center center">
+          <md-checkbox aria-label="Select Transaction" ng-model="transaction.selected" class="md-secondary" ></md-checkbox>
+        </div>
+      </div>
+      <md-divider layout-fill ng-show="$index == selectedCitationIndex"></md-divider>
+      <div layout="column" layout-fill class="expanded">
+        <p class="transaction" ng-show="$index == selectedCitationIndex">Transaction Details</p>
+
+        <div ng-repeat="h in headers" flex="grow">
+          <div layout layout-align="space-between center" layout-padding ng-if="h.name !== 'Citations'">
+            <p>{{ h.name }}</p>
+            <p>{{ transaction[h.field] }}</p>
+          </div>
+          <div  layout layout-align="space-between center" layout-padding ng-if="h.name === 'Citations' && transaction[h.field].length>0">
+            <p>{{ h.name }}</p>
+            <md-button ng-if="!openedCitations[transaction.hashTransBlock]" aria-label="Open transaction citations" layout-align="none center" ng-click="toggleCitation($index, transaction)">
+              <md-icon md-svg-src="icons/ic_keyboard_arrow_down_black_24px.svg"></md-icon>
+            </md-button>
+            <md-button ng-if="openedCitations[transaction.hashTransBlock]" aria-label="Close transaction citations" layout-align="none center" ng-click="toggleCitation($index, transaction)">
+              <md-icon md-svg-src="icons/ic_keyboard_arrow_up_black_24px.svg"></md-icon>
+            </md-button>
+          </div>
+          <div layout="column" layout-padding ng-if="openedCitations[transaction.hashTransBlock]">
+            <div ng-repeat="citation in transaction[h.field]" layout-align="space-between center" layout>
+              <p>{{$index+1}}</p>
+              <p>{{ citation.key.hashCited }}</p>
+            </div>
+          </div>
+
+        </div>
+      </md-item-content> <md-divider class="divider-inset" ng-if="!$last"></md-divider> </md-item>
+    </div>
+  </md-item-content> <md-divider class="divider-inset" ng-if="!$last"></md-divider> </md-item>
+</div>
+</div>
+</md-dialog-content>
+
+<md-dialog-actions layout="row">
+  <span flex></span>
+  <md-button ng-click="cancel()">
+    Cancel
+  </md-button>
+  <md-button ng-click="hide()">
+    Add
+  </md-button>
+</md-dialog-actions>
+</md-dialog>

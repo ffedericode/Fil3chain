@@ -1,0 +1,38 @@
+{
+  "name": "blockchain",
+  "description": "Bower components for Blockchain system",
+  "main": "/development/index.js",
+  "authors": [
+    "Ivan Bruno"
+  ],
+  "version": "0.0.1",
+  "license": "ISC",
+  "keywords": [
+    "grunt",
+    "bower",
+    "angular",
+    "angular",
+    "angular-material"
+  ],
+  "homepage": "http://localhost:9000",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-animate": "1.5.5",
+    "angular-aria": "1.5.5",
+    "angular-cookies": "1.5.5",
+    "angular-material": "1.0.8",
+    "angular-messages": "1.5.5",
+    "angular-resource": "1.5.5",
+    "angular-route": "1.5.5",
+    "angular-ui-router": "0.2.18",
+    "angular-chart.js": "^0.10.2",
+    "jquery": "^3.1.0"
+  }
+}

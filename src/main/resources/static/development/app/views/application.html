@@ -1,0 +1,18 @@
+<style media="screen">
+  #applicationContent{
+    background-image: url(images/fil3chain_logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20vw 0;
+  }
+</style>
+<speed-dial></speed-dial>
+<sidenav>sidenav</sidenav>
+
+<md-content id="applicationContentWrapper"layout="column" layout-fill>
+  <navbar>navbar</navbar>
+
+  <md-content id="applicationContent" ui-view="content" layout="column" flex="90" md-scroll-y></md-content>
+
+<!--   <footer>footer</footer> -->
+</md-content>

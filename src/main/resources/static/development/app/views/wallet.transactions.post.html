@@ -1,0 +1,70 @@
+
+<md-content flex="noshrink" layout-padding>
+<md-progress-circular md-mode="{{progressMode}}" md-diameter="96" ng-hide="!progressMode" flex-offset="45"></md-progress-circular>
+<md-card ng-show="file && !progressMode" flex="" flex-gt-md="80" flex-offset-gt-md="10" >
+  <md-card-title style="min-height: 3em;">
+    <md-card-title-text>
+      <span class="md-headline">Transaction</span>
+      <span class="md-subhead">This card shows the details of the file inserted in the transaction</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="md-media-lg card-media">
+        <img src="images/handshake.png" alt="Handshake Transaction" />
+      </div>
+    </md-card-title-media>
+  </md-card-title>
+  <md-card-content layout="column">
+      <div layout-gt-md="row" layout-md="column" flex="100">
+        <p flex-gt-md="30"><strong>File name </strong></p><p flex>{{file.name}}</p>
+      </div>
+      <div layout-gt-md="row" layout-md="column" flex="100">
+        <p flex="30"> <strong>Last Modified Date</strong></p><p>{{file.lastModifiedDate | date:'medium'}}</p>
+      </div>
+      <div layout-gt-md="row" layout-md="column" flex="100">
+        <p flex="30"> <strong>Type</strong></p><p flex> {{file.type}}</p>
+      </div>
+      <div layout-gt-md="row" layout-md="column" flex="100">
+        <p flex="30"> <strong>Size</strong> </p><p flex>{{file.size}}</p>
+      </div>
+      <div layout-gt-md="row" layout-md="column" flex="100">
+        <p flex="30"> <strong>Sha256</strong></p> <p flex>{{file.sha256}}</p>
+      </div>
+      <div layout-gt-md="row" layout-md="column" flex="100" layout-wrap ng-if="fileToSend.citations.length">
+        <p flex="30"> <strong>Citations</strong></p>
+
+        <md-button  flex-offset="60" ng-click="citationsContainer.show=!citationsContainer.show">
+        	<md-icon md-svg-src="{{citationsContainer[citationsContainer.show]}}"></md-icon>
+        </md-button>
+
+        <div flex="100" layout="row" layout-wrap ng-if="citationsContainer.show">
+        <p flex="30"></p>
+		<md-list flex="66">
+			 <md-list-item	ng-repeat="citation in fileToSend.citations" layout-align="space-between center">
+				<p>{{ citation.hashFile }}</p>
+				<md-button layout-align="none center" ng-click="deleteCitation($index)">
+					<md-icon md-svg-src="icons/ic_close_black_24px.svg"></md-icon>
+				</md-button>
+			</md-list-item>
+		</md-list>
+		</div>
+
+      </div>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align-md="start center" layout-align-gt-md="end center">
+    <md-button ng-click="deleteTransaction($event)">Delete</md-button>
+    <md-button ng-click="showCitation($event)">Add citations</md-button>
+    <md-button ng-click="submitTransaction(fileToSend)" class="md-raised md-primary md-button md-ink-ripple">Submit</md-button>
+  </md-card-actions>
+</md-card>
+<span flex-gt-md="10"></span>
+
+
+
+<div class="upload">
+</div>
+<style media="screen">
+  .upload>.md-fab-bottom-right{
+    position: fixed;
+  }
+</style>
+</md-content>

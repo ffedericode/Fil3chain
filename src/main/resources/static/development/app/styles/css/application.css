@@ -1,0 +1,25 @@
+#applicationContentWrapper {
+  overflow: hidden; }
+
+#applicationContent.ng-enter {
+  -webkit-animation: fadeInUp  1s;
+  -moz-animation: fadeInUp 1s;
+  -ms-animation: fadeInUp 1s;
+  animation: fadeInUp 1s; }
+
+md-fab-speed-dial:not(.ng-hide-animate) {
+  /* this is required as of 1.3x to properly
+  apply all styling in a show/hide animation */
+  -webkit-animation: slideInUp 1s;
+  -moz-animation: slideInUp 1s;
+  -ms-animation: slideInUp 1s;
+  animation: slideInUp 1s; }
+md-fab-speed-dial.ng-leave {
+  /* this is required as of 1.3x to properly
+  apply all styling in a show/hide animation */
+  -webkit-animation: slideOutDown 1s;
+  -moz-animation: slideOutDown 1s;
+  -ms-animation: slideOutDown 1s;
+  animation: slideOutDown 1s; }
+
+/*# sourceMappingURL=application.css.map */

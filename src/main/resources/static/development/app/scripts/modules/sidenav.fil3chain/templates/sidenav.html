@@ -1,0 +1,18 @@
+<md-sidenav  layout-align="end"
+md-is-locked-open="$mdMedia('gt-sm')"
+class="md-whiteframe-z2"
+md-component-id="left"
+layout="column"
+ng-if="sidenav.links.length > '0'" flex="5">
+
+
+  <md-list layout="column" layout-align="null center" style="overflow-x: hidden;">
+    <md-list-item layout="row" layout-align="center" ng-repeat="nav in sidenav.links"  ui-sref-active="active">
+      <md-button  aria-label="{{nav.label}}"  ng-click="actionClick(nav)" >
+        <md-icon md-svg-src="{{nav.icon}}"></md-icon>
+        <md-tooltip md-direction="right" md-delay="500">{{nav.label}}</md-tooltip>
+      </md-button>
+    </md-list-item>
+  </md-list>
+
+</md-sidenav>

@@ -1,0 +1,62 @@
+<style>
+  p.transaction {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1em;
+    margin: 0 0 0 0;
+    position: relative;
+
+    color: rgba(0,0,0,0.54);
+    background-color: rgb(255,255,255);
+  }
+</style>
+<md-content layout="row" flex layout-align="center" layout-fill layout-padding>
+  <div flex="70" class="content" ui-view>
+    <md-item ng-repeat="transaction in transactions track by $index" class="item"
+    ng-class="{ 'selected-item': $index == selectedTransactionIndex}">
+    <md-item-content flex class="user tile md-whiteframe-z1"
+    ng-class="{ 'selected md-whiteframe-z2': $index == selectedTransactionIndex}"
+    layout="column">
+    <div layout="row" layout-fill layout-padding ng-click="selectUserIndex($index)"
+    class="">
+    <div class="md-tile-left">
+      <p class="transaction" ng-hide="$index == selectedTransactionIndex">Transaction Filename</p>
+      <h3>{{ transaction.filename }}</h3>
+
+    </div>
+    <div flex></div>
+    <div class="md-tile-content" ng-show="selectionMode" layout="row" layout-align="center center">
+      <md-checkbox aria-label="Select Transaction" class="md-secondary"></md-checkbox>
+    </div>
+  </div>
+  <md-divider layout-fill ng-show="$index == selectedTransactionIndex"></md-divider>
+  <div layout="column" flex="grow" layout-fill layout-padding class="expanded">
+    <p class="transaction" ng-show="$index == selectedTransactionIndex">Transaction Details</p>
+
+    <div ng-repeat="h in headers" flex="grow">
+      <div layout layout-align="space-between center" layout-padding ng-if="h.name !== 'Citations'">
+        <p>{{ h.name }}</p>
+        <p>{{ transaction[h.field] }}</p>
+      </div>
+      <div  layout layout-align="space-between center" layout-padding ng-if="h.name === 'Citations' && transaction[h.field].length>0">
+        <p>{{ h.name }}</p>
+        <md-button ng-if="!openedCitations[transaction.hashTransBlock]" aria-label="Open transaction citations" layout-align="none center" ng-click="toggleCitation($index, transaction)">
+          <md-icon md-svg-src="icons/ic_keyboard_arrow_down_black_24px.svg"></md-icon>
+        </md-button>
+        <md-button ng-if="openedCitations[transaction.hashTransBlock]" aria-label="Close transaction citations" layout-align="none center" ng-click="toggleCitation($index, transaction)">
+          <md-icon md-svg-src="icons/ic_keyboard_arrow_up_black_24px.svg"></md-icon>
+        </md-button>
+      </div>
+      <div layout="column" layout-padding ng-if="openedCitations[transaction.hashTransBlock]">
+        <div ng-repeat="citation in transaction[h.field]" layout-align="space-between center" layout>
+          <p>{{$index+1}}</p>
+          <p>{{ citation.key.hashCited }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</md-item-content> <md-divider class="divider-inset" ng-if="!$last"></md-divider> </md-item>
+
+</md-content>
